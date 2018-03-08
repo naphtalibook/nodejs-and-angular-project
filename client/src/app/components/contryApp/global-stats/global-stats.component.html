@@ -1,0 +1,20 @@
+<form (ngSubmit)="submit()" [formGroup]='globalStatsForm'>
+    <p>
+      min Area: <input type="number" name="minAreaControl" formControlName="minAreaControl" />
+    </p>
+      <p>
+      max Area: <input type="number" name="maxAreaControl" formControlName="maxAreaControl" />
+    </p>
+    <p>
+      min population (* 1,000,000): <input type="number" name="minPopControl" formControlName="minPopControl" placeholder="3 = 3,000,000"/>
+    </p>
+      <p>
+      max population (* 1,000,000): <input type="number" name="maxPopControl" formControlName="maxPopControl" placeholder="3 = 3,000,000"/>
+    </p>
+
+    <button [disabled]="!globalStatsForm.valid">Serch</button>
+  </form>
+
+  <div id="main"> 
+    <app-contry-panel  *ngFor="let country of countries" [contry]="country"></app-contry-panel>
+  </div>

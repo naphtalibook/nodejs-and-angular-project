@@ -1,0 +1,14 @@
+<form (ngSubmit)="submit()" [formGroup]='populationForm'>
+    <p>
+      min population (* 1,000,000): <input type="number" name="minControl" formControlName="minControl" placeholder="3 = 3,000,000"/>
+    </p>
+      <p>
+      max population (* 1,000,000): <input type="number" name="maxControl" formControlName="maxControl" placeholder="3 = 3,000,000"/>
+    </p>
+
+    <button [disabled]="!populationForm.valid">Serch</button>
+  </form>
+
+  <div id="main"> 
+    <app-contry-panel  *ngFor="let country of countries" [contry]="country"></app-contry-panel>
+  </div>

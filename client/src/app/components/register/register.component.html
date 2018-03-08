@@ -1,0 +1,17 @@
+<h1>register</h1>
+<form (ngSubmit)="submit()" [formGroup]='registerForm'>
+    <p>
+      Name: <input type="text" name="nameControl" formControlName="nameControl" />
+    </p>
+      <p>
+      Family Name: <input type="text" name="familyNameControl" formControlName="familyNameControl" />
+    </p>
+    <p>
+      Email: <input type="text" name="emailControl" formControlName="emailControl"/>
+    </p>
+      <p>
+      Password: <input type="text" name="passwordControl" formControlName="passwordControl"/>
+    </p>
+
+    <button [disabled]="!registerForm.valid">Register</button>
+  </form>

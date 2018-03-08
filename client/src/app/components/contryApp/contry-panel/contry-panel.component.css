@@ -1,0 +1,11 @@
+.panel{
+    margin: 10px;
+    padding: 10px;
+    background-color: limegreen;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+}
+p{
+    text-decoration: underline;
+    cursor: pointer;
+}

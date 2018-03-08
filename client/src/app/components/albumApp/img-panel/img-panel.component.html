@@ -1,0 +1,8 @@
+<div class="panel"> 
+  <img src="{{url}}{{path}}" (click)="clarifai()">
+   <p> <b>{{likes}} </b> <span (click)="like()">like</span>  </p>
+   <p></p>
+   <ul>
+     <li *ngFor="let item of clarifaiItems">#{{item.name}}<li>
+  </ul>
+</div>

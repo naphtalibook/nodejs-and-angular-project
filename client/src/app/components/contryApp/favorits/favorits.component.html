@@ -1,0 +1,11 @@
+  <h2>My Favorits</h2>
+  <div id="main"> 
+
+  <div *ngFor="let country of countries; let i = index">
+    <a href="#" (click)="removeFromFavorits(i);false">X</a>
+    <app-contry-panel   [contry]="country">
+    </app-contry-panel>
+    </div>
+    
+  </div>
+

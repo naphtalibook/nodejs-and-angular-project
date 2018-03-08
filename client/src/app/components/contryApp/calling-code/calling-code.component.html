@@ -1,0 +1,11 @@
+<form (ngSubmit)="submit()" [formGroup]='callinCodeForm'>
+    <p>
+      Number of calling code digits: <input type="text" name="codeControle" formControlName="codeControle" />
+    </p>
+   
+    <button [disabled]="!callinCodeForm.valid">Serch</button>
+  </form>
+
+  <div id="main"> 
+    <app-contry-panel  *ngFor="let country of countries" [contry]="country"></app-contry-panel>
+  </div>

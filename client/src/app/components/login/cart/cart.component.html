@@ -1,0 +1,20 @@
+<p>searh cart by id: <input type='number' [(ngModel)]="cartId"> <button (click)="getCart()">search</button></p>
+<h2>cart</h2>
+<table>
+    <tr>
+      <th>Product Name</th>
+      <th>Unit Price</th>
+      <th>Units In Stock</th>
+      <th>Units On Order</th>
+      <th>Category</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let product of Products">
+      <td>{{product.productName}}</td>
+      <td>{{product.unitPrice | currency:'USD'}}</td>
+      <td>{{product.unitsInStock}}</td>
+      <td>{{product.unitsOnOrder}}</td>
+      <td>{{product.category}}</td>
+      <td><button (click)="removeFromcart(product)">remove from cart</button></td>
+    </tr>
+  </table>

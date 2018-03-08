@@ -1,0 +1,29 @@
+<div>
+  <p>Search: <input class="input" type="text" [(ngModel)]="searchText" (ngModelChange)="search($event)" placeholder="search"></p>
+  <p>Price: <br> Min:<input class="input" type="number" [(ngModel)]="min" (ngModelChange)="filterPrice($event)" placeholder="min">
+     Max:<input class="input" type="number" [(ngModel)]="max" (ngModelChange)="filterPrice($event)" placeholder="max">
+  </p>
+
+  <table>
+    <tr>
+      <th>Product Name</th>
+      <th>Unit Price</th>
+      <th>Units In Stock</th>
+      <th>Units On Order</th>
+      <th>Category</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let product of Products">
+      <td>{{product.productName}}</td>
+      <td>{{product.unitPrice | currency:'USD'}}</td>
+      <td>{{product.unitsInStock}}</td>
+      <td>{{product.unitsOnOrder}}</td>
+      <td>{{product.category}}</td>
+      <td><button (click)="addToCart(product)">add to cart</button></td>
+    </tr>
+  </table>
+<div id="paging">
+  <button (click)="prevPage()">&laquo;prev</button>
+  <button [disabled]="nextDisable" (click)="nextPage()">next&raquo;</button>
+</div>
+</div>

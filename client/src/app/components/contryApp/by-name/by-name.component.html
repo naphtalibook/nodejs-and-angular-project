@@ -1,0 +1,11 @@
+
+<h2>select country:</h2>
+
+<select name="" id="" [(ngModel)]="selected" (ngModelChange)="onChange($event)">
+  <option *ngFor="let country of countries" [value]=country>{{country}} </option>
+</select>
+
+  
+  <div id="main" *ngIf="isSelected"> 
+    <app-contry-panel   [contry]="countryObj"></app-contry-panel>
+  </div>

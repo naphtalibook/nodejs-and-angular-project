@@ -1,0 +1,20 @@
+<form (ngSubmit)="submit()" [formGroup]='lanLatForm'>
+    <p>
+      Top X: <input type="number" name="topXControl" formControlName="topXControl" />
+    </p>
+      <p>
+      Bootom X: <input type="number" name="bottomXControl" formControlName="bottomXControl" />
+    </p>
+    <p>
+      Top Y: <input type="number" name="topYControl" formControlName="topYControl"/>
+    </p>
+      <p>
+      Bottom Y: <input type="number" name="bottomYControl" formControlName="bottomYControl"/>
+    </p>
+
+    <button [disabled]="!lanLatForm.valid">Serch</button>
+  </form>
+
+  <div id="main"> 
+    <app-contry-panel  *ngFor="let country of countries" [contry]="country"></app-contry-panel>
+  </div>

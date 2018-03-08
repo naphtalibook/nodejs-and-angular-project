@@ -1,0 +1,14 @@
+<form (ngSubmit)="submit()" [formGroup]='timeZoneForme'>
+    <p>
+      min utc: <input type="number" name="minControl" formControlName="minControl" />
+    </p>
+      <p>
+      max utc: <input type="number" name="maxControl" formControlName="maxControl" />
+    </p>
+
+    <button [disabled]="!timeZoneForme.valid">Serch</button>
+  </form>
+
+  <div id="main"> 
+    <app-contry-panel  *ngFor="let country of countries" [contry]="country"></app-contry-panel>
+  </div>

@@ -1,0 +1,11 @@
+<form (ngSubmit)="submit()" [formGroup]='capitalForm'>
+    <p>
+      Capital: <input type="text" name="capitalControle" formControlName="capitalControle" />
+    </p>
+   
+    <button [disabled]="!capitalForm.valid">Serch</button>
+  </form>
+
+  <div id="main"> 
+    <app-contry-panel  *ngFor="let country of countries" [contry]="country"></app-contry-panel>
+  </div>
