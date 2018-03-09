@@ -1,39 +1,46 @@
 var express=  require('express');
 var loginRouter = express.Router();
 const jwt = require("jsonwebtoken");
+const dbConection = require('../db/dbConnection');
+const User = require('../db/models/user');
 
 
 loginRouter.post('',(req, res) =>{
     let name = req.body.userName;
     let password = req.body.password;
-    let permition = isPermited(name,password);
-    if(permition != false){ //check if is indata bace
-        permition = JSON.stringify(permition)
-        //get key with secret code
-        const tokenWithUserClaims = jwt.sign(permition, 'very-long-secret');
-        res.setHeader("authorization", tokenWithUserClaims);
-        // console.log(tokenWithUserClaims)
-        res.json(tokenWithUserClaims);
-        res.status(200).end();
-    }else{
-        res.status(401).end();
-    }
+    isPermited(name,password).then((user)=>{
+
+        if(user != false){ //check if is indata bace
+            user = JSON.stringify(user);
+            //get key with secret code
+            const tokenWithUserClaims = jwt.sign(user, 'very-long-secret');
+            res.setHeader("authorization", tokenWithUserClaims);
+            // console.log(tokenWithUserClaims)
+            res.json(tokenWithUserClaims);
+            res.status(200).end();
+        }else{
+            res.status(401).end();
+        }
+
+    });
+    
 });
 
-function user(_name,_password,_role){
+function user(_name,_familyName,_email){
     this.Name = _name;
-    this.Password = _password;
-    this.Role = _role;
+    this.FamilyName = _familyName;
+    this.Email = _email;
+    
 }
 function isPermited(name,password){
-    if(name === 'naphtali' && password === '123456'){
-        return new user(name, password,'admin');
-    }else if(name === 'gal' && password === '123'){
-        return new user(name, password, 'user');
-    }else{
-        return false;
-    }
-}
+    return new Promise(function(resolve, reject) {
+        User.find({name:name, password:password}, (err, response)=>{
+            if(err) return reject(err);
+            resolve(response[0]);
+        });
+    });
+} 
+
 
 
 module.exports = loginRouter;

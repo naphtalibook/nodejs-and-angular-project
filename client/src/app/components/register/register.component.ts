@@ -33,10 +33,25 @@ export class RegisterComponent implements OnInit {
     let familyName = this.registerForm.get('familyNameControl').value;
     let email = this.registerForm.get('emailControl').value;
     let password = this.registerForm.get('passwordControl').value;
-    // this.ContryDataService.getLanLat(topX,bottomX,topY,bottomY).subscribe((res) => {
-    //   this.countries = res;
-    // },err =>{
-    //   //error
-    // });
+    let user = new User(name,familyName,email,password);
+    
+    this.RegisterService.addUser(user).subscribe((res) => {
+      console.log(res);
+    },err =>{
+      //error
+    });
+  }
+}
+
+class User{
+  public Name: string;
+  public FamilyName: string;
+  public Email: string;
+  public Password: string;
+  constructor(_name,_familyName,_email,_password){
+    this.Name = _name;
+    this.FamilyName = _familyName;
+    this.Email = _email;
+    this.Password = _password
   }
 }

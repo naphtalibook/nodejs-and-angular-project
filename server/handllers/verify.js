@@ -9,7 +9,7 @@ const verifyKey = (req,res) =>{
                 res.json(false);
             }
             // console.log(decoded.Role);
-            res.json(decoded.Role); 
+            res.json(decoded); 
             // res.json(true); 
         });
 

@@ -8,9 +8,9 @@ export class RegisterService {
 
   constructor(public HttpClient:HttpClient) { }
 
-  addToCart(product): Observable<any> {
-    console.log(product);
-    return this.HttpClient.post(Url.cartAdd, product, );
+  addUser(user): Observable<any> {
+    console.log(user);
+    return this.HttpClient.post(Url.register, user);
   }
 
 }

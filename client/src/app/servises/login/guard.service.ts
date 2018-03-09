@@ -7,7 +7,7 @@ export class GuardService implements CanActivate {
   constructor(public LoginService:LoginService){}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    let PermitidRoles = route.data["roles"] as Array<string>;
+    // let PermitidRoles = route.data["roles"] as Array<string>;
 
     return new Promise<boolean>((resolve)=> {
       let localKey = localStorage.getItem("unicKey");
@@ -17,13 +17,11 @@ export class GuardService implements CanActivate {
       if(this.LoginService.unicKey != null || localKey != null){
         this.LoginService.veryfay().subscribe(res=>{
           if(res){
-            // console.log(res);
-            // console.log(roles);
-            if(PermitidRoles.indexOf(res) > -1){
+            // if(PermitidRoles.indexOf(res) > -1){
               resolve(true) ;
-            }else{
-               resolve(false) ;
-            }
+            // }else{
+            //    resolve(false) ;
+            // }
           }else{
             resolve(false) ;
           }

@@ -48,8 +48,8 @@ const appRoutes :Routes = [
   ]},
 
   { path:'login', component: LoginComponent},
-  { path:'products', component: ProductsComponent, canActivate: [GuardService],data: {roles:['admin','user']}},
-   { path:'cart',component: CartComponent,canActivate: [GuardService],data: {roles:['admin']}},
+  { path:'products', component: ProductsComponent, canActivate: [GuardService]},//,data: {roles:['admin','user']} for permitions - change also in gard and in server varifay
+   { path:'cart',component: CartComponent,canActivate: [GuardService]},//,data: {roles:['admin']}
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 

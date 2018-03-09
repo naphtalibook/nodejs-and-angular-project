@@ -9,6 +9,7 @@ export const Url = {
     veryfay: 'http://localhost:3003/veryfay',
     cartAdd: `http://localhost:3003/api/cart/add`,
     cartId : `http://localhost:3003/api/cart/id/`,
-    products: `http://localhost:3003/api/products`
+    products: `http://localhost:3003/api/products`,
+    register: `http://localhost:3003/register`
 }
 
